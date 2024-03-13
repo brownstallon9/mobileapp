@@ -15,25 +15,25 @@ import styles from './welcome.style'
 
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"]
-const Welcome = () => {
+const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
   const router = useRouter();
   const [ activeJobType, setAtiveJobType] = useState('Full-time')
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Starry</Text>
+        <Text style={styles.userName}>Hello Abdulhakeem Habeebullah</Text>
         <Text style={styles.welcomeMessage}>Find Your Perfect Job</Text>
       </View>
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=''
-            onChange={() => {}}
+            value={searchTerm}
+            onChange={(text) => setSearchTerm(text)}
             placeholder='What Are You Looking For'
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
           <Image 
             source={icons.search}
             resizeMode='contain'
